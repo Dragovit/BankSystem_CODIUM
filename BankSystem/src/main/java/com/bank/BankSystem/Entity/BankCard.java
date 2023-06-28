@@ -1,12 +1,28 @@
 package com.bank.BankSystem.Entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class BankCard {
+    @Id
+    @GeneratedValue
+    private int id;
     private String cardNumber;
     private String expDate;
     private String cardHolder;
     private int cvc;
 
     public BankCard() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCardNumber() {

@@ -1,12 +1,20 @@
 package com.bank.BankSystem.Entity;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
 public class Person {
+    @Id
+    @GeneratedValue
     private int id;
     private String name;
     private String surname;
     private String personalNumber;
+
+    @OneToMany(targetEntity = BankCard.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "PersonCards_association", referencedColumnName = "id")
     private List<BankCard> bankCards;
 
     public Person() {
