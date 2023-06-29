@@ -40,8 +40,8 @@ public class BankSystemController {
             return ResponseEntity.badRequest().body("Invalid input missing: " + error);
         } else {
             this.personRepository.save(person);
-            logger.trace("TRACE message");
-            logger.info("INFO message");
+            logger.trace("Je zapnuty LOCAL profil");
+            logger.info("Je zapnuty PRODUCTION profil");
             return ResponseEntity.ok("Person successfully added!");
         }
 
