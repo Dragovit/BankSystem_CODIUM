@@ -34,13 +34,13 @@ public class BankSystemControllerTest {
     public void testAddPerson_ValidInput_ShouldReturnOk() throws Exception {
         Person person = new Person();
         person.setName("Jozo");
-        person.setSurname("Mal");
+        person.setSurname("Maly");
         person.setPersonalNumber("0105214591");
 
         mockMvc = MockMvcBuilders.standaloneSetup(bankSystemController).build();
 
         mockMvc.perform(MockMvcRequestBuilders.post("/addPerson")
-                        .content("{\"name\":\"Jozo\",\"surname\":\"Mal\",\"personalNumber\":\"0105214591\"}")
+                        .content("{\"name\":\"Jozo\",\"surname\":\"Maly\",\"personalNumber\":\"0105214591\"}")
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -75,8 +75,8 @@ public class BankSystemControllerTest {
     public void testFindAll_PersonsFound_ShouldReturnOk() throws Exception {
         List<Person> persons = new ArrayList<>();
         List<BankCard> bankCards = new ArrayList<>();
-        bankCards.add(new BankCard(1, "0010_0472_9494_6583", "0503", "Jozo Mal", "442"));
-        persons.add(new Person(1, "Jozo", "Mal", "0105214591", bankCards));
+        bankCards.add(new BankCard(1, "0010_0472_9494_6583", "0503", "Jozo Maly", "442"));
+        persons.add(new Person(1, "Jozo", "Maly", "0105214591", bankCards));
 
         when(personRepository.findAll()).thenReturn(persons);
 
