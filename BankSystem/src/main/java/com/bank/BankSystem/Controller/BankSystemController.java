@@ -34,7 +34,7 @@ public class BankSystemController {
         } if(person.getPersonalNumber() == null) {
             error = error + "personalNumber";
         }
-        if (error != "") {
+        if (error.equals("")) {
             return ResponseEntity.badRequest().body("Invalid input missing: " + error);
         }
         else {
@@ -52,4 +52,5 @@ public class BankSystemController {
         }
         return ResponseEntity.ok(this.personRepository.findAll());
     }
+
 }
