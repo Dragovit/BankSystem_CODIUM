@@ -20,6 +20,14 @@ public class Person {
     public Person() {
     }
 
+    public Person(int id, String name, String surname, String personalNumber, List<BankCard> bankCards) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.personalNumber = personalNumber;
+        this.bankCards = bankCards;
+    }
+
     public int getId() {
         return id;
     }

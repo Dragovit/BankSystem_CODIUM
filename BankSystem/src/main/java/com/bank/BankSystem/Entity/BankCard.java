@@ -12,9 +12,17 @@ public class BankCard {
     private String cardNumber;
     private String expDate;
     private String cardHolder;
-    private int cvc;
+    private String cvc;
 
     public BankCard() {
+    }
+
+    public BankCard(int id, String cardNumber, String expDate, String cardHolder, String cvc) {
+        this.id = id;
+        this.cardNumber = cardNumber;
+        this.expDate = expDate;
+        this.cardHolder = cardHolder;
+        this.cvc = cvc;
     }
 
     public int getId() {
@@ -49,11 +57,11 @@ public class BankCard {
         this.cardHolder = cardHolder;
     }
 
-    public int getCvc() {
+    public String getCvc() {
         return cvc;
     }
 
-    public void setCvc(int cvc) {
+    public void setCvc(String cvc) {
         this.cvc = cvc;
     }
 }

@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.HttpMediaTypeException;
-import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,22 +27,24 @@ public class BankSystemController {
     @PostMapping("/addPerson")
     public ResponseEntity<String> addPerson(@RequestBody Person person) {
         String error = "";
-        if(person.getName() == null) {
+        if (person.getName() == null) {
             error = error + "name ";
-        } if(person.getSurname() == null) {
+        }
+        if (person.getSurname() == null) {
             error = error + "surname ";
-        } if(person.getPersonalNumber() == null) {
+        }
+        if (person.getPersonalNumber() == null) {
             error = error + "personalNumber";
         }
         if (!error.equals("")) {
             return ResponseEntity.badRequest().body("Invalid input missing: " + error);
-        }
-        else {
+        } else {
             this.personRepository.save(person);
             logger.trace("TRACE message");
             logger.info("INFO message");
             return ResponseEntity.ok("Person successfully added!");
         }
+
     }
 
     @GetMapping("/findAll")
